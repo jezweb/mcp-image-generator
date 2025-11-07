@@ -1,0 +1,47 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mcp-image-generator",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-10-11",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "ai": {
+    "binding": "AI"
+  },
+
+  "r2_buckets": [
+    {
+      "binding": "R2_BUCKET",
+      "bucket_name": "mcp-image-generator-bucket"
+    }
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mcp-image-generator-db"
+    }
+  ],
+
+  "queues": {
+    "producers": [
+      {
+        "binding": "IMAGE_QUEUE",
+        "queue": "image-generation-queue"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "image-generation-queue",
+        "max_batch_size": 1,
+        "max_batch_timeout": 1,
+        "max_retries": 3,
+        "dead_letter_queue": "image-generation-dlq"
+      }
+    ]
+  },
+
+  "observability": {
+    "enabled": true
+  }
+}

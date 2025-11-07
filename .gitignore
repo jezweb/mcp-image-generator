@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.npm
+
+# Wrangler
+.wrangler/
+.dev.vars
+wrangler.toml
+
+# Build outputs
+dist/
+.cache/
+
+# Logs
+*.log
+*.log.*
+npm-debug.log*
+wrangler-tail-*.log
+mcp-inspector-*.log
+
+# Development
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Private/sensitive files
+SESSION.md
+CLAUDE.md
+test-*.js
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

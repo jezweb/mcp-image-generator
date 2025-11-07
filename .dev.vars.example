@@ -1,0 +1,6 @@
+# Copy this file to .dev.vars and fill in your values
+# .dev.vars is gitignored and won't be committed
+
+# Generate a secure random token for authentication
+# Example: openssl rand -base64 32
+AUTH_TOKEN=your-secure-auth-token-here
